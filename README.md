@@ -69,6 +69,7 @@ app/main.py
 requirements.txt
 .env.example
 README.md
+frontend/                 # Separate React + Vite client
 ```
 
 ## Database Schema
@@ -116,6 +117,27 @@ Apply the schema migration before starting the API:
 alembic upgrade head
 uvicorn app.main:app --reload
 ```
+
+## Frontend
+
+The standalone React + Vite client lives in `frontend/` and communicates only
+with the existing REST API. Run the API and frontend independently:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The frontend toolchain requires Node.js 20 or newer.
+The client uses `http://localhost:8000` by default. Set
+`VITE_API_BASE_URL` in `frontend/.env` to the REST API origin when it is hosted
+elsewhere. FastAPI's Swagger UI remains available at `/docs`.
+
+The document API does not expose file size, and historical conversation source
+records do not include source text or filenames. The client therefore does not
+show file sizes and only shows full source previews for answers returned by the
+chat endpoint.
 
 SQLite is used for local tests and creates its tables automatically. PostgreSQL does not use `create_all`; its schema and pgvector extension are managed through Alembic migrations.
 

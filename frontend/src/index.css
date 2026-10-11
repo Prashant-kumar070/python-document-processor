@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #f4f3f8;
+  background: #101014;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 360px; min-height: 100vh; }
+button, input, textarea { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+::selection { background: #7658dd66; }
+
+.app-shell {
+  background:
+    radial-gradient(ellipse at 72% 3%, rgba(99, 76, 180, .09), transparent 35%),
+    #101014;
+}
+.surface { background: #17171d; border: 1px solid #292831; }
+.soft-surface { background: #1c1b23; border: 1px solid #302e39; }
+.subtle-scrollbar { scrollbar-color: #3c3947 transparent; scrollbar-width: thin; }
+.subtle-scrollbar::-webkit-scrollbar { width: 6px; }
+.subtle-scrollbar::-webkit-scrollbar-thumb { background: #3c3947; border-radius: 10px; }
+.fade-in { animation: fade-in .28s ease-out both; }
+.rise-in { animation: rise-in .35s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.skeleton {
+  background: linear-gradient(90deg, #202027 25%, #292832 50%, #202027 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+.message-copy { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.75; }
+.drop-active { border-color: #9479f2 !important; background: rgba(113, 86, 222, .08) !important; }
+.chat-composer {
+  display: block;
+  min-height: 46px;
+  max-height: 220px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-color: #4e495a transparent;
+  scrollbar-width: thin;
+}
+.chat-composer::-webkit-scrollbar { width: 5px; }
+.chat-composer::-webkit-scrollbar-thumb { background: #4e495a; border-radius: 8px; }
+
+.light-theme.app-shell {
+  color: #262431;
+  background: radial-gradient(ellipse at 72% 3%, rgba(118, 91, 202, .07), transparent 35%), #f6f5f9;
+}
+.light-theme aside,
+.light-theme header {
+  background-color: #fff;
+  border-color: #e8e6ed;
+}
+.light-theme [class*="bg-[#"] { background-color: #fff; }
+.light-theme [class*="bg-white/"] { background-color: rgba(37, 32, 55, .025); }
+.light-theme [class*="border-white/"] { border-color: rgba(48, 43, 65, .1); }
+.light-theme [class*="text-[#f"],
+.light-theme [class*="text-[#e"],
+.light-theme [class*="text-[#d"],
+.light-theme [class*="text-[#c"],
+.light-theme [class*="text-[#b"],
+.light-theme [class*="text-[#a"],
+.light-theme [class*="text-[#9"],
+.light-theme [class*="text-[#8"],
+.light-theme [class*="text-[#7"],
+.light-theme [class*="text-[#6"] { color: #625f6e; }
+.light-theme [class*="text-[#f4"],
+.light-theme [class*="text-[#e8"],
+.light-theme [class*="text-[#e7"],
+.light-theme [class*="text-[#e5"],
+.light-theme [class*="text-[#e6"],
+.light-theme [class*="text-[#f0"],
+.light-theme [class*="text-[#f2"],
+.light-theme [class*="text-[#d9"],
+.light-theme [class*="text-[#d2"],
+.light-theme [class*="text-[#d0"],
+.light-theme [class*="text-[#cf"],
+.light-theme [class*="text-[#cb"],
+.light-theme [class*="text-[#c9"] { color: #292633; }
+.light-theme input,
+.light-theme textarea { color: #292633; }
+.light-theme input::placeholder,
+.light-theme textarea::placeholder { color: #9996a3; }
+.light-theme .app-shell { color: #262431; }
+.light-theme .skeleton {
+  background: linear-gradient(90deg, #eeedf2 25%, #e4e2ea 50%, #eeedf2 75%);
+  background-size: 200% 100%;
+}
